@@ -1,0 +1,20 @@
+<h1 Burgers Anyone</h1>
+
+<h2 class="main"> What is your faviorte Burger</h2>
+
+<ul class="text">
+{{#each burgers}}
+	{{#unless this.devoured}}
+	<li>
+		{{this.name}}
+
+		<form action="burgers/update/{{this.id}}?_method=PUT" method="POST">
+		<input type="hidden" name="devoured"
+		Value="true">
+		<button type="submit">DEVOURED TIME!</button>
+	  </form>
+	 </li>
+	{{/unless}}
+   {{/each}}
+ </ul>
+ 

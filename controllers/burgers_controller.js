@@ -25,8 +25,10 @@ router.post("/burgers/create", function(req, res){
 	burger.create([
 	"name", "devoured"
 	],[
+		req.body.name,req.body.sleepy
+		],function(){
 		res.redirect("/burgers");
-	]);
+	});
 });
 
 router.put("/burgers/update/:id", function(req,res){
