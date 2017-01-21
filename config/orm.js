@@ -9,6 +9,7 @@ function printQuestionMarks(num){
 	for(var i = 0; i < num; i++){
 		arr.push("?");
 	}
+
 	return arr.toString();
 }
 
@@ -17,62 +18,57 @@ function objToSql(ob){
 	var arr =[];
 
 	for (var key in ob) {
-		if (Object.hasOwnProperty.call(ob, key)) {
+		
 		  arr.push(key + "=" + ob[key]);
-		}
+		
 	}
+
 	return arr.toString();
 }
 
 //object for all the SQl statment functions
 var orm = {
-	all: function(tableInput, cb){
-		var queryString = "SELECT * FROM " + tableInput + ";";
+	all: function(table, cb){
+		var queryString = "SELECT * FROM " + table + ";";
 		connection.query(queryString, function(err, result) {
-			if(err ){
-				throw err;
-			}
+			if(err) throw err;
+			
 			cb(result);
 		});
 	},
 	create: function(table, cols, vals, cb){
-		var queryString = "INSERT INTO " + table;
-
-		queryString += "(";
-		queryString += cols.toString();
-		queryString += ") ";
-		queryString += "VALUES (";
-		queryString += printQestionMarks(vals.length);
-		queryString += ") ";
-
-		console.log(queryString);
-
+		var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (" + printQuestionMarks(vals.length) + ") ";
 		connection.query(queryString, vals, function(err, result){
-			if (err){
-				throw err;
-			}
-			cb(result);
-		});
+				if(err) throw err;
+				cb(result);
+		});	
+		 	
+		
 
 	},
 	//update of information
 	update: function(table, objColVals, condition, cb){
-		var queryString = "UPDATE " + table;
-
-		queryString += " SET ";
-		queryString += objToSql(onjColVals);
-		queryString += "WHERE";
-		queryString += condition;
-
-		console.log(queryString);
-		connection.query(queryString, function(err,result){
-			if (err){
-				throw err;
-			}
+		var queryString = "UPDATE " + table + " SET " + objToSql(objColVals)+ " WHERE " + condition;
+		connection.query(queryString, function(err,result) {
+			if (err) throw err;
+		
 			cb(result);
+
+		});
+	},
+
+	delete: function (table, condition, cd) {
+		var queryString = "DELETE FROM " + table + " WHERE " + condition;
+		connection.query(queryString, function(err, result){
+			if(err) throw err;
+				cd(result);
 		});
 	}
-};
+
+
+
+
+}
 
 //Export the orm object for the model (burger.js)
 module.exports = orm;
