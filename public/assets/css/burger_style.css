@@ -1,5 +1,13 @@
-li {
-  background: red;
+.text1{
+  font-size: 50px;
+  color: green;
+}
+
+
+
+.main {
+  font-size: 10px;
+  color: red;
   margin: 5px;
   padding: 5px;
 }

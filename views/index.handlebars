@@ -1,6 +1,6 @@
-<h1 Burgers Anyone</h1>
+<h1 class="text1" > Burgers Anyone</h1>
 
-<h2 class="main"> What is your faviorte Burger</h2>
+<h2 class="main"> Burger Order List</h2>
 
 <ul class="text">
 {{#each burgers}}
@@ -13,7 +13,7 @@
 			update/{{this.id}}?_method=PUT" method="POST">
 				<input type="hidden" name="devoured"
 				value="true">
-			<button type="submit" class="btn btn-warning">DONE!</button>
+			<button type="submit" class="btn btn-warning">Ready for pick up</button>
 	  	</form>
 	 </li>
 </div>
@@ -24,7 +24,7 @@
 
 <div class="rightside text-center">
 <br>
- <h2 class="title"> Types of Burgers </h2>
+ <h2 class="title"> Time to eat </h2>
  <br>
 
  	<ul>
@@ -40,13 +40,13 @@
  		       	 method="POST">
  		         <input type="hidden" name="devoured"
  		         value="false">
- 		         <button type="submit" class="btn btn-warning">In my belly!</button>
+ 		         
  		       </form>
 
  		       <form action="burgers/
 				delete/{{this.id}}?_method=DELETE" method="POST">
  		       	<input type="hidden" name="delete" value="true">
- 		       	<button type="submit" class="btn btn-warning">Delete burger</button>
+ 		       	<button type="submit" class="btn btn-warning">Devoured it</button>
  		       </form>
 
  		      </li>
@@ -63,7 +63,7 @@
 <br><br>
 
 
-<h2> Add your Burger</h2>
+<h2> Create your Burger here</h2>
 
 <br>
 
@@ -78,11 +78,11 @@ method="POST">
 	<div class="form-group">
 	   <label for="devoured">Devoured</label><br>
 	   <input type="radio" name="devoured" value="1"
-	   checked>Devoured it<br>
-	   <input type="radio" name="devoured" value="0"> burger</div>
+	   checked>Eating<br>
+	   <input type="radio" name="devoured" value="0">Order</div>
 	 </div>
 
-	   <button type="submit">Add Burger</button>
+	   <button type="submit">Burger Creator</button>
 	</form>
 
 </div>
