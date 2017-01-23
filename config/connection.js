@@ -20,19 +20,19 @@ var connection;
 
 if(process.env.JAWSDB_URL) {
 	connection = mysql.createConnection(process.env.JAWSDB_URL);
-}eles{
+
+} else {
 	connection = mysql.createConnection({
 		host: "localhost",
 		user: "root",
 		password: "School1313",
 		database: "burgers_db"
-	});
-};
-
+	})
+}
 
 
 
 
 //export connection for the ORM to use
-connection.connect();
+connection.connect(); 
 module.exports = connection;

@@ -1,6 +1,12 @@
-<h1 class="text1" > Burgers Anyone</h1>
+<div class="container-fluid">
 
-<h2 class="main"> Burger Order List</h2>
+
+
+<img class="images" src="assets/img/burger1.jpg">
+
+
+
+<h2 class="text1"> Burger Order List</h2>
 
 <ul class="text">
 {{#each burgers}}
@@ -24,7 +30,7 @@
 
 <div class="rightside text-center">
 <br>
- <h2 class="title"> Time to eat </h2>
+ <h2 class="text2"> Time to eat </h2>
  <br>
 
  	<ul>
@@ -46,7 +52,7 @@
  		       <form action="burgers/
 				delete/{{this.id}}?_method=DELETE" method="POST">
  		       	<input type="hidden" name="delete" value="true">
- 		       	<button type="submit" class="btn btn-warning">Devoured it</button>
+ 		     	<button class="orders" type="submit" class="btn btn-warning">Devoured it</button>
  		       </form>
 
  		      </li>
@@ -63,7 +69,7 @@
 <br><br>
 
 
-<h2> Create your Burger here</h2>
+<h2 class="create"> Burger Creator here</h2>
 
 <br>
 
@@ -76,15 +82,16 @@ method="POST">
 	</div>
 
 	<div class="form-group">
-	   <label for="devoured">Devoured</label><br>
-	   <input type="radio" name="devoured" value="1"
+	   <label id="dev" for="devoured"></label><br>
+	   <input class="radio-input" type="radio" name="devoured" value="1"
 	   checked>Eating<br>
 	   <input type="radio" name="devoured" value="0">Order</div>
 	 </div>
 
-	   <button type="submit">Burger Creator</button>
+	   <button class="button1" type="submit">Burger Creator</button>
 	</form>
 
+</div>
 </div>
 </div>
 
